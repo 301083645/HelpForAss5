@@ -19,6 +19,8 @@ namespace HelpForAss5
 
         private void DBViewForm_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'lesson11DBDataSet.Contacts' table. You can move, or remove it, as needed.
+            this.contactsTableAdapter.Fill(this.lesson11DBDataSet.Contacts);
 
         }
     }
