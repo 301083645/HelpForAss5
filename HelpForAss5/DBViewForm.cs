@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,15 @@ namespace HelpForAss5
             // TODO: This line of code loads data into the 'lesson11DBDataSet.Contacts' table. You can move, or remove it, as needed.
             this.contactsTableAdapter.Fill(this.lesson11DBDataSet.Contacts);
 
+
+            var contacts =
+                from contact in this.lesson11DBDataSet.Contacts
+                select contact;
+
+            foreach(var contact in contacts)
+            {
+                Debug.WriteLine($"First name:{contact.FirstName}");
+            }
         }
     }
 }
