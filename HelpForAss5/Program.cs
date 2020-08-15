@@ -9,6 +9,11 @@ namespace HelpForAss5
     public static class Program
     {
         public static List<Contact> contacts;
+
+        public static DBViewForm dbViewForm;
+
+        public static ContactInfoForm contactInfoForm;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -21,7 +26,10 @@ namespace HelpForAss5
             // new empty list of contacts
             contacts = new List<Contact>();
 
-            Application.Run(new DBViewForm());
+            dbViewForm = new DBViewForm();
+            contactInfoForm = new ContactInfoForm();
+
+            Application.Run(dbViewForm);
         }
     }
 }

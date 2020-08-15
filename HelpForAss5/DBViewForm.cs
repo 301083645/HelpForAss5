@@ -95,5 +95,11 @@ namespace HelpForAss5
         {
             Application.Exit();
         }
+
+        private void NextButton_Click(object sender, EventArgs e)
+        {
+            Program.contactInfoForm.Show();
+            this.Hide();
+        }
     }
 }
