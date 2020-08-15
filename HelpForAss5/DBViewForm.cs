@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,6 +62,38 @@ namespace HelpForAss5
                 Debug.WriteLine("");
             }
             */
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // configure the save file dialog
+            ContactListSaveFileDialog.InitialDirectory = Directory.GetCurrentDirectory();
+            // display the savefiledialog and save the results in the saveFileDialogResult object
+            var saveFileDialogResult = ContactListSaveFileDialog.ShowDialog();
+
+            if(saveFileDialogResult != DialogResult.Cancel)
+            {
+                // create new stream
+                StreamWriter streamWriter = new StreamWriter(ContactListSaveFileDialog.FileName);
+
+                // write to the file
+                foreach (var contact in Program.contacts)
+                {
+                    streamWriter.WriteLine(contact.FirstName);
+                    streamWriter.WriteLine(contact.LastName);
+                    streamWriter.WriteLine(contact.EmailAddress);
+                    streamWriter.WriteLine(contact.ContactNumber);
+                }
+
+                // clean up
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
