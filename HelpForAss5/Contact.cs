@@ -1,26 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HelpForAss5
+﻿namespace HelpForAss5
 {
-    public class Contact
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    public partial class Contact
     {
-        // public properties
+        public int Id { get; set; }
+
+        [Required]
+        [StringLength(50)]
         public string FirstName { get; set; }
+
+        [Required]
+        [StringLength(50)]
         public string LastName { get; set; }
+
+        [Required]
+        [StringLength(50)]
         public string EmailAddress { get; set; }
+
+        [Required]
+        [StringLength(20)]
         public string ContactNumber { get; set; }
-    
-        // constructor
-        public Contact(string first_name = "", string last_name = "", string email_address = "", string contact_number = "")
-        {
-            FirstName = first_name;
-            LastName = last_name;
-            EmailAddress = email_address;
-            ContactNumber = contact_number;
-        }
     }
 }

@@ -55,5 +55,10 @@ namespace HelpForAss5
         {
             Application.Exit();
         }
+
+        private void ContactInfoForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
