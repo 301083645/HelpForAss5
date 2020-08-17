@@ -20,6 +20,7 @@ namespace HelpForAss5
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
             this.textBoxDescription.Text = AssemblyDescription;
+            this.AuthorLabel.Text = "Author: Eunbee Lee";
         }
 
         #region Assembly Attribute Accessors
