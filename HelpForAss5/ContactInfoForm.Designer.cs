@@ -35,7 +35,18 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ContactListBox = new System.Windows.Forms.ListBox();
             this.ContactListOpenFile = new System.Windows.Forms.OpenFileDialog();
+            this.ContactInfoGroupBox = new System.Windows.Forms.GroupBox();
+            this.FirstNameLabel = new System.Windows.Forms.Label();
+            this.FirstNameTextBox = new System.Windows.Forms.TextBox();
+            this.LastNameLabel = new System.Windows.Forms.Label();
+            this.LastNameTextBox = new System.Windows.Forms.TextBox();
+            this.EmailLabel = new System.Windows.Forms.Label();
+            this.EmailTextBox = new System.Windows.Forms.TextBox();
+            this.ContactNumberLabel = new System.Windows.Forms.Label();
+            this.ContactNumberTextBox = new System.Windows.Forms.TextBox();
+            this.ContactComboBox = new System.Windows.Forms.ComboBox();
             this.PrimaryMenuStrip.SuspendLayout();
+            this.ContactInfoGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // PrimaryMenuStrip
@@ -81,10 +92,11 @@
             // 
             this.ContactListBox.FormattingEnabled = true;
             this.ContactListBox.ItemHeight = 31;
-            this.ContactListBox.Location = new System.Drawing.Point(24, 59);
+            this.ContactListBox.Location = new System.Drawing.Point(30, 67);
             this.ContactListBox.Name = "ContactListBox";
-            this.ContactListBox.Size = new System.Drawing.Size(334, 35);
+            this.ContactListBox.Size = new System.Drawing.Size(283, 35);
             this.ContactListBox.TabIndex = 1;
+            this.ContactListBox.SelectedIndexChanged += new System.EventHandler(this.ContactListBox_SelectedIndexChanged);
             // 
             // ContactListOpenFile
             // 
@@ -92,11 +104,114 @@
             this.ContactListOpenFile.FileName = "ContactList";
             this.ContactListOpenFile.Filter = "Text Files|*.txt|All Files|*.*";
             // 
+            // ContactInfoGroupBox
+            // 
+            this.ContactInfoGroupBox.Controls.Add(this.ContactNumberTextBox);
+            this.ContactInfoGroupBox.Controls.Add(this.ContactNumberLabel);
+            this.ContactInfoGroupBox.Controls.Add(this.EmailTextBox);
+            this.ContactInfoGroupBox.Controls.Add(this.EmailLabel);
+            this.ContactInfoGroupBox.Controls.Add(this.LastNameTextBox);
+            this.ContactInfoGroupBox.Controls.Add(this.LastNameLabel);
+            this.ContactInfoGroupBox.Controls.Add(this.FirstNameTextBox);
+            this.ContactInfoGroupBox.Controls.Add(this.FirstNameLabel);
+            this.ContactInfoGroupBox.Location = new System.Drawing.Point(328, 42);
+            this.ContactInfoGroupBox.Name = "ContactInfoGroupBox";
+            this.ContactInfoGroupBox.Size = new System.Drawing.Size(444, 384);
+            this.ContactInfoGroupBox.TabIndex = 2;
+            this.ContactInfoGroupBox.TabStop = false;
+            // 
+            // FirstNameLabel
+            // 
+            this.FirstNameLabel.AutoSize = true;
+            this.FirstNameLabel.Location = new System.Drawing.Point(7, 25);
+            this.FirstNameLabel.Name = "FirstNameLabel";
+            this.FirstNameLabel.Size = new System.Drawing.Size(147, 31);
+            this.FirstNameLabel.TabIndex = 0;
+            this.FirstNameLabel.Text = "First Name";
+            // 
+            // FirstNameTextBox
+            // 
+            this.FirstNameTextBox.BackColor = System.Drawing.Color.White;
+            this.FirstNameTextBox.ForeColor = System.Drawing.Color.Black;
+            this.FirstNameTextBox.Location = new System.Drawing.Point(13, 60);
+            this.FirstNameTextBox.Name = "FirstNameTextBox";
+            this.FirstNameTextBox.ReadOnly = true;
+            this.FirstNameTextBox.Size = new System.Drawing.Size(291, 38);
+            this.FirstNameTextBox.TabIndex = 1;
+            // 
+            // LastNameLabel
+            // 
+            this.LastNameLabel.AutoSize = true;
+            this.LastNameLabel.Location = new System.Drawing.Point(7, 108);
+            this.LastNameLabel.Name = "LastNameLabel";
+            this.LastNameLabel.Size = new System.Drawing.Size(145, 31);
+            this.LastNameLabel.TabIndex = 0;
+            this.LastNameLabel.Text = "Last Name";
+            // 
+            // LastNameTextBox
+            // 
+            this.LastNameTextBox.BackColor = System.Drawing.Color.White;
+            this.LastNameTextBox.ForeColor = System.Drawing.Color.Black;
+            this.LastNameTextBox.Location = new System.Drawing.Point(13, 143);
+            this.LastNameTextBox.Name = "LastNameTextBox";
+            this.LastNameTextBox.ReadOnly = true;
+            this.LastNameTextBox.Size = new System.Drawing.Size(291, 38);
+            this.LastNameTextBox.TabIndex = 1;
+            // 
+            // EmailLabel
+            // 
+            this.EmailLabel.AutoSize = true;
+            this.EmailLabel.Location = new System.Drawing.Point(7, 191);
+            this.EmailLabel.Name = "EmailLabel";
+            this.EmailLabel.Size = new System.Drawing.Size(90, 31);
+            this.EmailLabel.TabIndex = 0;
+            this.EmailLabel.Text = "E-mail";
+            // 
+            // EmailTextBox
+            // 
+            this.EmailTextBox.BackColor = System.Drawing.Color.White;
+            this.EmailTextBox.ForeColor = System.Drawing.Color.Black;
+            this.EmailTextBox.Location = new System.Drawing.Point(14, 226);
+            this.EmailTextBox.Name = "EmailTextBox";
+            this.EmailTextBox.ReadOnly = true;
+            this.EmailTextBox.Size = new System.Drawing.Size(425, 38);
+            this.EmailTextBox.TabIndex = 1;
+            // 
+            // ContactNumberLabel
+            // 
+            this.ContactNumberLabel.AutoSize = true;
+            this.ContactNumberLabel.Location = new System.Drawing.Point(7, 273);
+            this.ContactNumberLabel.Name = "ContactNumberLabel";
+            this.ContactNumberLabel.Size = new System.Drawing.Size(212, 31);
+            this.ContactNumberLabel.TabIndex = 0;
+            this.ContactNumberLabel.Text = "Contact Number";
+            // 
+            // ContactNumberTextBox
+            // 
+            this.ContactNumberTextBox.BackColor = System.Drawing.Color.White;
+            this.ContactNumberTextBox.ForeColor = System.Drawing.Color.Black;
+            this.ContactNumberTextBox.Location = new System.Drawing.Point(14, 308);
+            this.ContactNumberTextBox.Name = "ContactNumberTextBox";
+            this.ContactNumberTextBox.ReadOnly = true;
+            this.ContactNumberTextBox.Size = new System.Drawing.Size(425, 38);
+            this.ContactNumberTextBox.TabIndex = 1;
+            // 
+            // ContactComboBox
+            // 
+            this.ContactComboBox.FormattingEnabled = true;
+            this.ContactComboBox.Location = new System.Drawing.Point(30, 233);
+            this.ContactComboBox.Name = "ContactComboBox";
+            this.ContactComboBox.Size = new System.Drawing.Size(283, 39);
+            this.ContactComboBox.TabIndex = 3;
+            this.ContactComboBox.SelectedIndexChanged += new System.EventHandler(this.ContactComboBox_SelectedIndexChanged);
+            // 
             // ContactInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.ContactComboBox);
+            this.Controls.Add(this.ContactInfoGroupBox);
             this.Controls.Add(this.ContactListBox);
             this.Controls.Add(this.PrimaryMenuStrip);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -111,6 +226,8 @@
             this.Load += new System.EventHandler(this.ContactInfoForm_Load);
             this.PrimaryMenuStrip.ResumeLayout(false);
             this.PrimaryMenuStrip.PerformLayout();
+            this.ContactInfoGroupBox.ResumeLayout(false);
+            this.ContactInfoGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,5 +242,15 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ListBox ContactListBox;
         private System.Windows.Forms.OpenFileDialog ContactListOpenFile;
+        private System.Windows.Forms.GroupBox ContactInfoGroupBox;
+        private System.Windows.Forms.TextBox ContactNumberTextBox;
+        private System.Windows.Forms.Label ContactNumberLabel;
+        private System.Windows.Forms.TextBox EmailTextBox;
+        private System.Windows.Forms.Label EmailLabel;
+        private System.Windows.Forms.TextBox LastNameTextBox;
+        private System.Windows.Forms.Label LastNameLabel;
+        private System.Windows.Forms.TextBox FirstNameTextBox;
+        private System.Windows.Forms.Label FirstNameLabel;
+        private System.Windows.Forms.ComboBox ContactComboBox;
     }
 }

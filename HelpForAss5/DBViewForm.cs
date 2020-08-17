@@ -24,24 +24,6 @@ namespace HelpForAss5
             // TODO: This line of code loads data into the 'lesson11DBDataSet.Contacts' table. You can move, or remove it, as needed.
             this.contactsTableAdapter.Fill(this.lesson11DBDataSet.Contacts);
 
-
-            //Reading from the database
-            using(var db = new ContactModel())// Entity Framework
-            {
-                // read from the database
-                //var contact = new Contact();
-
-                var query = (from contact in db.Contacts
-                            //orderby contact.LastName
-                            select contact).ToList();
-            
-                foreach (var contact in query)
-                {
-                    Debug.WriteLine(contact.LastName);
-                }
-            }
-
-
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)

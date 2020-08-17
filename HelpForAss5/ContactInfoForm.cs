@@ -13,6 +13,9 @@ namespace HelpForAss5
 {
     public partial class ContactInfoForm : Form
     {
+
+        public List<Contact> Contacts { get; set; }
+
         public ContactInfoForm()
         {
             InitializeComponent();
@@ -20,6 +23,8 @@ namespace HelpForAss5
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Contacts = new List<Contact>();
+
             // configure the open file dialog
             ContactListOpenFile.InitialDirectory = Directory.GetCurrentDirectory();
 
@@ -33,11 +38,17 @@ namespace HelpForAss5
                 // read in the list
                 while (!streamReader.EndOfStream)
                 {
-                    streamReader.ReadLine();
-                    ContactListBox.Items.Add(streamReader.ReadLine());
-                    streamReader.ReadLine();
-                    streamReader.ReadLine();
+                    var contact = new Contact();
 
+                    contact.FirstName = streamReader.ReadLine();
+                    contact.LastName = streamReader.ReadLine();
+                    contact.EmailAddress = streamReader.ReadLine();
+                    contact.ContactNumber = streamReader.ReadLine();
+
+                    ContactListBox.Items.Add(contact.LastName);
+                    ContactComboBox.Items.Add(contact.LastName);
+
+                    Contacts.Add(contact); // add our new contact to the Contacts List
                 }
 
                 // clean up
@@ -58,6 +69,24 @@ namespace HelpForAss5
 
         private void ContactInfoForm_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void ContactListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FirstNameTextBox.Text = Contacts[ContactListBox.SelectedIndex].FirstName;
+            LastNameTextBox.Text = Contacts[ContactListBox.SelectedIndex].LastName;
+            EmailTextBox.Text = Contacts[ContactListBox.SelectedIndex].EmailAddress;
+            ContactNumberTextBox.Text = Contacts[ContactListBox.SelectedIndex].ContactNumber;
+
+        }
+
+        private void ContactComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FirstNameTextBox.Text = Contacts[ContactComboBox.SelectedIndex].FirstName;
+            LastNameTextBox.Text = Contacts[ContactComboBox.SelectedIndex].LastName;
+            EmailTextBox.Text = Contacts[ContactComboBox.SelectedIndex].EmailAddress;
+            ContactNumberTextBox.Text = Contacts[ContactComboBox.SelectedIndex].ContactNumber;
 
         }
     }
