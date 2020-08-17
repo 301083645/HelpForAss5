@@ -74,5 +74,15 @@ namespace HelpForAss5
             Program.contactInfoForm.Show();
             this.Hide();
         }
+
+        private void PrimaryMenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

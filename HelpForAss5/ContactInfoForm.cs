@@ -54,6 +54,8 @@ namespace HelpForAss5
                 // clean up
                 streamReader.Close();
 
+                ContactComboBox.SelectedIndex = 0;
+
             }
         }
 

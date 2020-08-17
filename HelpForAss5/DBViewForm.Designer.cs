@@ -30,24 +30,28 @@
         {
             this.components = new System.ComponentModel.Container();
             this.ContactsGridView = new System.Windows.Forms.DataGridView();
-            this.lesson11DBDataSet = new HelpForAss5.Lesson11DBDataSet();
-            this.contactsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.contactsTableAdapter = new HelpForAss5.Lesson11DBDataSetTableAdapters.ContactsTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.emailAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contactNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contactsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lesson11DBDataSet = new HelpForAss5.Lesson11DBDataSet();
+            this.contactsTableAdapter = new HelpForAss5.Lesson11DBDataSetTableAdapters.ContactsTableAdapter();
             this.PrimaryMenuStrip = new System.Windows.Forms.MenuStrip();
             this.saveContactListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.ContactListSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.NextButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ContactsGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lesson11DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lesson11DBDataSet)).BeginInit();
             this.PrimaryMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,20 +72,6 @@
             this.ContactsGridView.Name = "ContactsGridView";
             this.ContactsGridView.Size = new System.Drawing.Size(760, 407);
             this.ContactsGridView.TabIndex = 0;
-            // 
-            // lesson11DBDataSet
-            // 
-            this.lesson11DBDataSet.DataSetName = "Lesson11DBDataSet";
-            this.lesson11DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // contactsBindingSource
-            // 
-            this.contactsBindingSource.DataMember = "Contacts";
-            this.contactsBindingSource.DataSource = this.lesson11DBDataSet;
-            // 
-            // contactsTableAdapter
-            // 
-            this.contactsTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -119,15 +109,31 @@
             this.contactNumberDataGridViewTextBoxColumn.Name = "contactNumberDataGridViewTextBoxColumn";
             this.contactNumberDataGridViewTextBoxColumn.Width = 230;
             // 
+            // contactsBindingSource
+            // 
+            this.contactsBindingSource.DataMember = "Contacts";
+            this.contactsBindingSource.DataSource = this.lesson11DBDataSet;
+            // 
+            // lesson11DBDataSet
+            // 
+            this.lesson11DBDataSet.DataSetName = "Lesson11DBDataSet";
+            this.lesson11DBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // contactsTableAdapter
+            // 
+            this.contactsTableAdapter.ClearBeforeFill = true;
+            // 
             // PrimaryMenuStrip
             // 
             this.PrimaryMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveContactListToolStripMenuItem});
+            this.saveContactListToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.PrimaryMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.PrimaryMenuStrip.Name = "PrimaryMenuStrip";
             this.PrimaryMenuStrip.Size = new System.Drawing.Size(784, 24);
             this.PrimaryMenuStrip.TabIndex = 1;
             this.PrimaryMenuStrip.Text = "menuStrip1";
+            this.PrimaryMenuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.PrimaryMenuStrip_ItemClicked);
             // 
             // saveContactListToolStripMenuItem
             // 
@@ -136,8 +142,24 @@
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.saveContactListToolStripMenuItem.Name = "saveContactListToolStripMenuItem";
+            this.saveContactListToolStripMenuItem.ShortcutKeyDisplayString = "Alt + F";
+            this.saveContactListToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
             this.saveContactListToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.saveContactListToolStripMenuItem.Text = "File";
+            this.saveContactListToolStripMenuItem.Text = "&File";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl + S";
+            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Text = "&Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -146,17 +168,34 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // saveToolStripMenuItem
+            // helpToolStripMenuItem
             // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveToolStripMenuItem.Text = "Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator6,
+            this.aboutToolStripMenuItem,
+            this.toolStripSeparator2});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "&Help";
             // 
-            // toolStripSeparator1
+            // toolStripSeparator6
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(187, 6);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.ShortcutKeyDisplayString = "Ctrl+Shift+A";
+            this.aboutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.A)));
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.aboutToolStripMenuItem.Text = "&About...";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(187, 6);
             // 
             // ContactListSaveFileDialog
             // 
@@ -192,8 +231,8 @@
             this.Text = "DB View";
             this.Load += new System.EventHandler(this.DBViewForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ContactsGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lesson11DBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contactsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lesson11DBDataSet)).EndInit();
             this.PrimaryMenuStrip.ResumeLayout(false);
             this.PrimaryMenuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -219,6 +258,10 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog ContactListSaveFileDialog;
         private System.Windows.Forms.Button NextButton;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
 
