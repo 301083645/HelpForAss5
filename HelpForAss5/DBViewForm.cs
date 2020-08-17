@@ -23,7 +23,7 @@ namespace HelpForAss5
         {
             // TODO: This line of code loads data into the 'lesson11DBDataSet.Contacts' table. You can move, or remove it, as needed.
             this.contactsTableAdapter.Fill(this.lesson11DBDataSet.Contacts);
-
+            ContactsGridView_CellClick(sender, e as DataGridViewCellEventArgs);
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -88,6 +88,30 @@ namespace HelpForAss5
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Program.aboutBoxForm.ShowDialog();
+        }
+
+        private void ContactsGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            /*
+            var rowIndex =
+            ContactsGridView.SelectedRows[0].Cells[0].RowIndex;
+            */
+
+            var firstName=
+            ContactsGridView.SelectedRows[0].Cells[1].Value;
+            var lastName =
+            ContactsGridView.SelectedRows[0].Cells[2].Value;
+            var emailAddress =
+            ContactsGridView.SelectedRows[0].Cells[3].Value;
+            var contactNumber =
+            ContactsGridView.SelectedRows[0].Cells[4].Value;
+
+            SelectionTextBox.Text = $@"{firstName} {lastName} {emailAddress}"; 
+        }
+
+        private void ContactsGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
