@@ -84,5 +84,10 @@ namespace HelpForAss5
         {
 
         }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.aboutBoxForm.ShowDialog();
+        }
     }
 }

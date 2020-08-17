@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace HelpForAss5
 {
-    partial class AboutBoxForm : Form
+    public partial class AboutBoxForm : Form
     {
         public AboutBoxForm()
         {
@@ -103,6 +103,11 @@ namespace HelpForAss5
         #endregion
 
         private void labelCopyright_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AboutBoxForm_Load(object sender, EventArgs e)
         {
 
         }

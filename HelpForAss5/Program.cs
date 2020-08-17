@@ -14,6 +14,8 @@ namespace HelpForAss5
 
         public static ContactInfoForm contactInfoForm;
 
+        public static AboutBoxForm aboutBoxForm;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -27,7 +29,7 @@ namespace HelpForAss5
 
             dbViewForm = new DBViewForm();
             contactInfoForm = new ContactInfoForm();
-
+            aboutBoxForm = new AboutBoxForm();
             Application.Run(dbViewForm);
         }
     }
